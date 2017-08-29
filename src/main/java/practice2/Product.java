@@ -20,7 +20,7 @@ public class Product {
         return price;
     }
 
-    public BigDecimal getAvailableDiscounts() {
+    public BigDecimal getDiscountRate() {
         return availableDiscounts;
     }
 

@@ -1,7 +1,6 @@
 package practice2;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.List;
 
 
@@ -22,7 +21,8 @@ public class Receipt {
         for (Product product : products) {
             for (OrderItem item : counts) {
                 if (item.getCode() == product.getCode()) {
-                    subTotal = subTotal.add(product.getPrice().multiply(new BigDecimal(item.getCount())));
+                    BigDecimal itemTotal = product.getPrice().multiply(new BigDecimal(item.getCount()));
+                    subTotal = subTotal.add(itemTotal);
                     break;
                 }
             }
@@ -32,7 +32,7 @@ public class Receipt {
             for (OrderItem item : counts) {
                 if (item.getCode() == product.getCode()) {
                     BigDecimal reducedPrice = product.getPrice()
-                            .multiply(product.getAvailableDiscounts())
+                            .multiply(product.getDiscountRate())
                             .multiply(new BigDecimal(item.getCount()));
                     subTotal = subTotal.subtract(reducedPrice);
                     break;
