@@ -11,9 +11,6 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by jxzhong on 2017/8/28.
- */
 public class SecurityTest {
 
 

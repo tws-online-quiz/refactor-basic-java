@@ -2,9 +2,6 @@ package practice1;
 
 import com.google.common.collect.ImmutableList;
 
-/**
- * Created by jxzhong on 2017/8/28.
- */
 public class Security {
 
     private SecurityChecker securityChecker;
