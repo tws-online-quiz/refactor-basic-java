@@ -1,10 +1,6 @@
 package practice3;
 
 import java.math.BigDecimal;
-
-/**
- * Created by jxzhong on 2017/8/29.
- */
 public class OrderLineItem {
     private BigDecimal price;
 

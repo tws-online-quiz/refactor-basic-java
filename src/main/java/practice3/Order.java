@@ -3,9 +3,6 @@ package practice3;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * Created by jxzhong on 2017/8/29.
- */
 public class Order {
 
     private List<OrderLineItem> orderLineItemList;

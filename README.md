@@ -1,4 +1,6 @@
-## 重构基础：Java版
+# 重构基础：Java版
+
+## 练习描述
 
 ### 练习1
 
@@ -12,27 +14,11 @@
 
     使用抽象方法对象(Extract Method Object)重构遗留代码
 
+## 环境要求
++ java 8
++ git
 
-## 参考资料
-
-1. [Gradle基础教程](http://tutorials.jenkov.com/gradle/gradle-tutorial.html)
-2. [Java 基础](http://www.runoob.com/java/java-tutorial.html)
-3. [Git 参考手册](http://gitref.org/zh/index.html)
-
-
-## 答题流程
-- 请用户仔细阅读题目要求和题目描述
-
-- 在命令行中使用以下命令在用户本地任意目录下clone此题目库
-```
-git clone repo_of_this_template
-```
-- 删除目录下的.git文件夹
-- 使用git init命令初始化一个新仓库
-- 建立Github远程仓库，将本地仓库同步到Gitbub
-
-
-## 如何本地运行
+## 如何开始
 
 首先初次下载完需要安装依赖和建立项目相关配置：
 
@@ -52,4 +38,6 @@ git clone repo_of_this_template
   Mac/Linux: ./gradlew clean test
   Whindows:  gradlew.bat clean test.
 ```
+
+## 输出规范
 
