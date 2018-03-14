@@ -15,31 +15,21 @@ public class Receipt {
     public double CalculateGrandTotal(List<Product> products, List<OrderItem> items) {
         BigDecimal subTotal = calculateSubtotal(products, items);
 
-        subTotal = SubtractDiscounts(products, items, subTotal);
+        for (Product product : products) {
+            OrderItem curItem = findOrderItemByProduct(items, product);
 
-        BigDecimal grandTotal = AddTax(subTotal);
+            BigDecimal reducedPrice = product.getPrice()
+                    .multiply(product.getDiscountRate())
+                    .multiply(new BigDecimal(curItem.getCount()));
 
-        return convertTotalToDoubleType(grandTotal);
-    }
+            subTotal = subTotal.subtract(reducedPrice);
+        }
+        BigDecimal taxTotal = subTotal.multiply(tax);
+        BigDecimal grandTotal = subTotal.add(taxTotal);
 
-    private double convertTotalToDoubleType(BigDecimal grandTotal) {
         return grandTotal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
-    private BigDecimal AddTax(BigDecimal subTotal) {
-        BigDecimal taxTotal = subTotal.multiply(tax);
-
-        return subTotal.add(taxTotal);
-    }
-
-    private BigDecimal SubtractDiscounts(List<Product> products, List<OrderItem> items, BigDecimal subTotal) {
-        for (Product product : products) {
-            OrderItem curItem = findOrderItemByProduct(items, product);
-            BigDecimal reducedPrice = caculateProductDiscounts(product, curItem);
-            subTotal = subTotal.subtract(reducedPrice);
-        }
-        return subTotal;
-    }
 
     private OrderItem findOrderItemByProduct(List<OrderItem> items, Product product) {
         OrderItem curItem = null;
@@ -52,23 +42,13 @@ public class Receipt {
         return curItem;
     }
 
-    private BigDecimal caculateProductDiscounts(Product product, OrderItem item) {
-        return product.getPrice()
-                .multiply(product.getDiscountRate())
-                .multiply(new BigDecimal(item.getCount()));
-    }
-
     private BigDecimal calculateSubtotal(List<Product> products, List<OrderItem> items) {
         BigDecimal subTotal = new BigDecimal(0);
         for (Product product : products) {
             OrderItem item = findOrderItemByProduct(items, product);
-            BigDecimal itemTotal = caculateItemTotal(product, item);
+            BigDecimal itemTotal = product.getPrice().multiply(new BigDecimal(item.getCount()));
             subTotal = subTotal.add(itemTotal);
         }
         return subTotal;
-    }
-
-    private BigDecimal caculateItemTotal(Product product, OrderItem item) {
-        return product.getPrice().multiply(new BigDecimal(item.getCount()));
     }
 }

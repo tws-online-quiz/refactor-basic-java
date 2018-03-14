@@ -8,9 +8,6 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by jxzhong on 2017/8/28.
- */
 public class ReceiptTest {
 
     @Test
