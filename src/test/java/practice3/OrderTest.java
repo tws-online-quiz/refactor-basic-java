@@ -9,9 +9,6 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by jxzhong on 2017/8/29.
- */
 public class OrderTest {
     @Test
     public void calculate() throws Exception {
@@ -25,7 +22,9 @@ public class OrderTest {
         Order order = new Order(orderLineItemList, discounts);
 
         //When
-        BigDecimal total = order.calculate();
+        PriceCaculator priceCaculator = new PriceCaculator(order);
+        BigDecimal total = priceCaculator.calculate();
+
         BigDecimal expectedTotal = new BigDecimal(178.2);
 
         //Then

@@ -3,10 +3,6 @@ package practice2;
 import java.math.BigDecimal;
 import java.util.List;
 
-
-/**
- * Created by jxzhong on 2017/8/28.
- */
 public class Receipt {
 
     public Receipt() {
