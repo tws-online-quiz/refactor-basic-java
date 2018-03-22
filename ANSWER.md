@@ -4,9 +4,10 @@
 + 答案详情请点击上方 作业答案下载，来下载 answer.zip 压缩包文件
 
 ### 如何启动
++ 解压 `answer.zip`，用 IntelliJ IDE 打开
++ 运行测试
 
-运行测试
-+ 根目录下执行`./gradlew clean test`
+  根目录下执行`./gradlew clean test`
 
 ### 重点讲解
 
